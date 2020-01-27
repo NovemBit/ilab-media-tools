@@ -168,9 +168,9 @@ abstract class DynamicImagesTool extends Tool {
 			    $this->allSizes = ilab_get_image_sizes();
 		    }
 
-		    $filename = pathinfo($metadata['file'], PATHINFO_BASENAME);
-		    $width = intval($metadata['width']);
-		    $height = intval($metadata['height']);
+		    $filename = pathinfo($metadata['file'] ?? '', PATHINFO_BASENAME);
+		    $width = intval($metadata['width'] ?? 0);
+		    $height = intval($metadata['height'] ?? 0);
 
 		    $didChange = false;
 		    foreach($this->allSizes as $sizeKey => $sizeData) {
